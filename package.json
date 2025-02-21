@@ -7,15 +7,62 @@
     "vscode": "^1.97.0"
   },
   "categories": [
-    "Other"
+    "Formatters"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "configuration": {
+      "type": "object",
+      "title": "APY Formatter",
+      "properties": {
+        "applicablePythonFormatter.formatter": {
+          "type": "string",
+          "enum": [
+            "None",
+            "black",
+            "autopep8",
+            "ruff"
+          ],
+          "default": "None",
+          "description": "Select the formatter to use for your APY code."
+        },
+        "applicablePythonFormatter.executablePath": {
+          "type": "string",
+          "default": "black",
+          "description": "Path to the formatter executable."
+        },
+        "applicablePythonFormatter.lineLength": {
+          "type": "number",
+          "default": 88,
+          "description": "Maximum line length for the formatter."
+        }
+      }
+    },
+    "languages": [
       {
-        "command": "apy-formatter.helloWorld",
-        "title": "Hello World"
+        "id": "applicablePython",
+        "aliases": [
+          "Applicable Python"
+        ],
+        "extensions": [
+          ".apy"
+        ],
+        "configuration": "./language/configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "applicablePython",
+        "scopeName": "source.applicablepython",
+        "path": "./language/grammars.json"
+      }
+    ],
+    "documentFormattingEditProviders": [
+      {
+        "language": "applicablePython",
+        "scheme": "file",
+        "command": "extension.formatDocument"
       }
     ]
   },
@@ -28,14 +75,15 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.97.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.97.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
-    "eslint": "^9.19.0",
-    "typescript": "^5.7.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "prettier": "^3.5.1",
+    "typescript": "^5.7.3"
   }
 }
