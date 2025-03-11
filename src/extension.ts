@@ -15,7 +15,7 @@ function registerFormatter(
   }
 
   const config = vscode.workspace.getConfiguration("applicablePythonFormatter");
-  const choice = config.get<string>("formatter", "black");
+  const choice = config.get<string>("formatter", "None");
 
   let formatter: vscode.DocumentFormattingEditProvider;
   switch (choice) {

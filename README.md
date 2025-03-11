@@ -34,14 +34,7 @@ The extension provides customizable settings under `applicablePythonFormatter`. 
 - Completion suggestions are limited to the `reve` global variable.
 - Formatting may be inconsistent if multiple formatters are installed but not properly configured.
 
-## Release Notes
-
-### 0.1.0
-
-Initial release with support for:
-- Code formatting (Black, Ruff, autopep8).
-- Auto completion based on `reve` and predefined imports.
-- Customizable formatting settings.
+If you encounter any bugs, issues, or have feature requests, please report them on [GitHub Issues](https://github.com/SkyReve/reve-apy-formatter/issues)
 
 ## License
 
