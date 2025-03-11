@@ -1,9 +1,15 @@
 # Change Log
 
-All notable changes to the "apy-formatter" extension will be documented in this file.
+All notable changes to the "reve-apy-formatter" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.2.0] - Initial Release 🎉
 
-## [Unreleased]
-
-- Initial release
+### Added
+- Code formatting support for:
+  - **Black** (`black`)
+  - **Ruff** (`ruff`)
+  - **autopep8** (`autopep8`)
+- Auto completion for:
+  - **`reve` global members**
+  - **Hidden imports** (e.g., `math`, `datetime`)
+- Customizable **formatting settings**.

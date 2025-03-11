@@ -1,15 +1,23 @@
 {
   "name": "reve-apy-formatter",
   "publisher": "SkyReve",
-  "displayName": "reve-apy-formatter",
+  "displayName": "Reve APY Formatter",
   "description": "Applicable Python (APY) Formatter",
-  "version": "0.1.0",
+  "icon": "logo.png",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.97.0"
   },
   "categories": [
     "Formatters"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SkyReve/reve-apy-formatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SkyReve/reve-apy-formatter/issues"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
