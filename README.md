@@ -1,71 +1,48 @@
-# apy-formatter README
+# SkyReve APY Formatter for VS Code
 
-This is the README for your extension "apy-formatter". After writing up a brief description, we recommend including the following sections.
+SkyReve APY Formatter is a VS Code extension designed for formatting **Applicable Python (APY) files**. APY files contain only function bodies, with hidden function prototypes and predefined global variables such as `reve`. This extension provides **auto formatting and auto completion** to enhance the APY development experience.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Code Formatting:** Supports multiple formatters (`Black`, `Ruff`, and `autopep8`) for APY files.
+- **Auto Completion:** Provides completions based on `reve` global members and hidden imports.
+- **Customizable Formatting Rules:** Users can configure formatting preferences for each formatter.
+- **Seamless Integration:** Works like Python in VS Code while adapting to the APY function-body-only structure.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **Python 3.7+** must be installed and available in the system's `PATH`.
+- At least one of the following formatters must be installed:
+  - [Black](https://pypi.org/project/black/) (`pip install black`)
+  - [Ruff](https://docs.astral.sh/ruff/) (`pip install ruff`)
+  - [autopep8](https://pypi.org/project/autopep8/) (`pip install autopep8`)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+The extension provides customizable settings under `applicablePythonFormatter`. Users can adjust formatter options as follows:
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```json
+{
+  "applicablePythonFormatter.formatter": "black",
+  "applicablePythonFormatter.lineLength": 88,
+  "applicablePythonFormatter.executablePath": "/path/to/formatter-executable"
+}
+```
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Completion suggestions are limited to the `reve` global variable.
+- Formatting may be inconsistent if multiple formatters are installed but not properly configured.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
+Initial release with support for:
+- Code formatting (Black, Ruff, autopep8).
+- Auto completion based on `reve` and predefined imports.
+- Customizable formatting settings.
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the **MIT License**.
