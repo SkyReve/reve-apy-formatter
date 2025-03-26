@@ -4,9 +4,9 @@
   "displayName": "Reve APY Formatter",
   "description": "Applicable Python (APY) Formatter",
   "icon": "logo.png",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
-    "vscode": "^1.97.0"
+    "vscode": "^1.86.2"
   },
   "categories": [
     "Formatters"
@@ -86,7 +86,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.97.0",
+    "@types/vscode": "^1.86.2",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "@vscode/test-cli": "^0.0.10",
