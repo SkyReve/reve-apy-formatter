@@ -2,7 +2,7 @@
 
 All notable changes to the "reve-apy-formatter" extension will be documented in this file.
 
-## [0.2.1] - Initial Release 🎉
+## [0.2.2] - Initial Release 🎉
 
 ### Added
 - Code formatting support for:

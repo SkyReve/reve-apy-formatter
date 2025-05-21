@@ -4,7 +4,7 @@
   "displayName": "Reve APY Formatter",
   "description": "Applicable Python (APY) Formatter",
   "icon": "logo.png",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": {
     "vscode": "^1.86.2"
   },
