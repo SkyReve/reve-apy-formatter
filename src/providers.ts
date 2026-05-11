@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { isApyFile } from "./utils";
+import { isApyFile, isApyOrLibsFile } from "./utils";
 import { getTopLevelLibImports } from "./lib-imports";
 import {
   APY_RUNTIME_COMPLETIONS,
@@ -29,7 +29,7 @@ export function createCompletionProvider(): vscode.Disposable {
     { language: "python", scheme: "file" },
     {
       async provideCompletionItems(document, position) {
-        if (!isApyFile(document)) return;
+        if (!isApyOrLibsFile(document)) return;
 
         const line = document.lineAt(position.line).text;
         const prefix = line.slice(0, position.character);
@@ -98,7 +98,7 @@ export function createDefinitionProvider(): vscode.Disposable {
     { language: "python", scheme: "file" },
     {
       async provideDefinition(document, position) {
-        if (!isApyFile(document)) return;
+        if (!isApyOrLibsFile(document)) return;
 
         // Handle database["TableName"] pattern -> tables/TableName.yaml
         const tableName = getTableNameAtPosition(document, position);
@@ -212,7 +212,7 @@ export function createSignatureHelpProvider(): vscode.Disposable {
     { language: "python", scheme: "file" },
     {
       async provideSignatureHelp(document, position) {
-        if (!isApyFile(document)) return;
+        if (!isApyOrLibsFile(document)) return;
 
         const line = document.lineAt(position.line).text;
         const prefix = line.slice(0, position.character);
@@ -286,7 +286,7 @@ export function createHoverProvider(): vscode.Disposable {
     { language: "python", scheme: "file" },
     {
       async provideHover(document, position) {
-        if (!isApyFile(document)) return;
+        if (!isApyOrLibsFile(document)) return;
 
         const dotted = getDottedExpressionAt(document, position);
         if (!dotted) return;

@@ -7,6 +7,20 @@ export function isApyFile(docOrUri: vscode.TextDocument | vscode.Uri): boolean {
   return uri.scheme === "file" && uri.fsPath.toLowerCase().endsWith(".apy");
 }
 
+export function isLibsPythonFile(uri: vscode.Uri): boolean {
+  if (uri.scheme !== "file") return false;
+  if (!uri.fsPath.toLowerCase().endsWith(".py")) return false;
+  const normalized = uri.fsPath.replace(/\\/g, "/");
+  return normalized.includes("/src/libs/");
+}
+
+export function isApyOrLibsFile(
+  docOrUri: vscode.TextDocument | vscode.Uri,
+): boolean {
+  const uri = "uri" in docOrUri ? docOrUri.uri : docOrUri;
+  return isApyFile(uri) || isLibsPythonFile(uri);
+}
+
 export async function forcePythonModeIfApy(
   document: vscode.TextDocument,
 ): Promise<vscode.TextDocument> {
